@@ -18,6 +18,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      z-index: 999;
     }
     .start-btn {
       padding: 20px 40px;
@@ -48,7 +49,7 @@
       opacity: 1;
     }
     .pedido img {
-      max-width: 300px;
+      max-width: 320px;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
       margin-top: 20px;
@@ -94,11 +95,11 @@
   <div id="contador" class="contador"></div>
   <div id="pedido" class="pedido">
     <h1>Quer namorar comigo? 🥺👉👈</h1>
-    <img src="https://i.pinimg.com/originals/26/3a/f7/263af75c35ff6ec2b1c76de1f2182f52.jpg" alt="Meme engraçado de pedido" />
+    <img src="https://i.imgur.com/9LkZzFg.png" alt="Meme engraçado de pedido" />
   </div>
 
   <!-- Música local -->
-  <audio id="musica" src="musica.mp3" autoplay loop></audio>
+  <audio id="musica" src="musica.mp3" preload="auto" loop></audio>
 
   <!-- Corações animados -->
   <script>
@@ -124,7 +125,7 @@
 
     function iniciar() {
       startScreen.remove();
-      musica.play().catch(() => {});
+      musica.play().catch(() => { console.log('Autoplay bloqueado.') });
 
       setTimeout(() => { msg1.classList.add('show'); }, 1000);
       setTimeout(() => { msg1.classList.remove('show'); msg2.classList.add('show'); }, 5000);
